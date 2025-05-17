@@ -4,6 +4,16 @@ import SplitText from "gsap/SplitText";
 // Register the plugin
 gsap.registerPlugin(SplitText);
 
+// refresh when resized
+let resizeTimeout;
+
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    location.reload();
+  }, 250);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const profileImageContainer = document.querySelector(".profile-images");
   const profileImages = document.querySelectorAll(".profile-images .img");
